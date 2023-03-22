@@ -7,6 +7,16 @@
       <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="durr-emea-aws-public-dependencies" />
+      <option name="name" value="Durr EMEA AWS Public Dependencies" />
+      <option name="url" value="https://daj2qh7ntu8gd.cloudfront.net/repository/maven-public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="durr-emea-aws-shapshot-dependencies" />
+      <option name="name" value="Durr EMEA AWS Shapshot Dependencies" />
+      <option name="url" value="https://daj2qh7ntu8gd.cloudfront.net/repository/maven-shapshots" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Maven Central repository" />
       <option name="url" value="https://repo1.maven.org/maven2" />
