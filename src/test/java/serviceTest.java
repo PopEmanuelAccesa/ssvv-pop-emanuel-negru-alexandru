@@ -12,7 +12,6 @@ import org.example.src.service.*;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
 
 public class serviceTest {
     private Service service;
@@ -79,6 +78,63 @@ public class serviceTest {
         students = service.findAllStudents();
         list = new ArrayList<>();
         students.forEach(list::add);
+        assertEquals(length, list.size());
+    }
+
+    @Test
+    public void testSaveAssignmentHappyCase(){
+        service.deleteTema("9");
+        String id = "9";
+        String descriere = "Do homework";
+        int deadline = 3;
+        int startline = 2;
+
+        ArrayList<Tema> list = new ArrayList<>();
+        var teme = service.findAllTeme();
+        teme.forEach(list::add);
+        var length = list.size();
+        service.saveTema(id, descriere, deadline, startline);
+        teme = service.findAllTeme();
+        list = new ArrayList<>();
+        teme.forEach(list::add);
+        assertEquals(length + 1, list.size());
+    }
+
+    @Test
+    public void testSaveAssignmentIdUnavailable(){
+        service.deleteTema("9");
+        String id = null;
+        String descriere = "Do homework";
+        int deadline = 3;
+        int startline = 2;
+
+        ArrayList<Tema> list = new ArrayList<>();
+        var teme = service.findAllTeme();
+        teme.forEach(list::add);
+        var length = list.size();
+        service.saveTema(id, descriere, deadline, startline);
+        teme = service.findAllTeme();
+        list = new ArrayList<>();
+        teme.forEach(list::add);
+        assertEquals(length, list.size());
+    }
+
+    @Test
+    public void testSaveAssignmentDescriereUnavailable(){
+        service.deleteTema("9");
+        String id = "9";
+        String descriere = null;
+        int deadline = 3;
+        int startline = 2;
+
+        ArrayList<Tema> list = new ArrayList<>();
+        var teme = service.findAllTeme();
+        teme.forEach(list::add);
+        var length = list.size();
+        service.saveTema(id, descriere, deadline, startline);
+        teme = service.findAllTeme();
+        list = new ArrayList<>();
+        teme.forEach(list::add);
         assertEquals(length, list.size());
     }
 }
