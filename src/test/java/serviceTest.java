@@ -63,4 +63,22 @@ public class serviceTest {
         students.forEach(list::add);
         assertEquals(length, list.size());
     }
+
+    @Test
+    public void testSaveStudentNumeUnavailable(){
+        service.deleteStudent("9");
+        String id = "9";
+        String nume = null;
+        int grupa = 400;
+
+        ArrayList<Student> list = new ArrayList<>();
+        var students = service.findAllStudents();
+        students.forEach(list::add);
+        var length = list.size();
+        service.saveStudent(id, nume ,grupa);
+        students = service.findAllStudents();
+        list = new ArrayList<>();
+        students.forEach(list::add);
+        assertEquals(length, list.size());
+    }
 }
